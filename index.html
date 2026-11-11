@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whole Whale (@wholewhale69) - Solana Community & Giveaways</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            950: '#030712',
+                            900: '#061325',
+                            800: '#0b1f3a',
+                            700: '#112c52',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            glow: '#00f2fe',
+                        },
+                        solana: {
+                            purple: '#9945FF',
+                            green: '#14F195',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'wave': 'wave 12s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(6, 182, 212, 0.3), 0 0 30px rgba(153, 69, 255, 0.2)' },
+                            '100%': { boxShadow: '0 0 30px rgba(6, 182, 212, 0.7), 0 0 60px rgba(20, 241, 149, 0.5)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wave: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(11, 31, 58, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+        }
+
+        .glass-panel-glow {
+            background: rgba(11, 31, 58, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.1);
+        }
+
+        .neon-text-cyan {
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.6), 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .neon-text-solana {
+            background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.4), rgba(153, 69, 255, 0.4));
+            padding: 1px;
+        }
+
+        .gradient-border-inner {
+            background: #061325;
+            border-radius: calc(1rem - 1px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #112c52;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black relative">
+
+    <!-- Glowing Background Lights -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-1/3 right-1/4 w-[600px] h-[600px] bg-solana-purple/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-cyan-500/20 px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative">
+                    <img src="https://pbs.twimg.com/profile_images/2119386138955698176/RDf_GOQb_400x400.jpg" 
+                         alt="Whole Whale Profile" 
+                         onerror="this.src='https://placehold.co/100x100/061325/22d3ee?text=Whale'"
+                         class="w-10 h-10 rounded-full border-2 border-cyan-400 group-hover:scale-105 transition-transform duration-300">
+                    <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-solana-green rounded-full border-2 border-ocean-950"></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-wide flex items-center gap-1.5 text-white">
+                        Whole Whale <span class="text-sm">🐋</span>
+                    </span>
+                    <span class="text-xs text-cyan-400/80 font-mono">@wholewhale69</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                <a href="#hero" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#giveaway" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-solana-green animate-ping"></span> Live Giveaway
+                </a>
+                <a href="#stats" class="hover:text-cyan-400 transition-colors">Stats</a>
+                <a href="#nft" class="hover:text-cyan-400 transition-colors">NFT Mint</a>
+                <a href="#community" class="hover:text-cyan-400 transition-colors">Community</a>
+                <a href="#faq" class="hover:text-cyan-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Quick Action Buttons including Telegram & X Community -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- X Community Link Button -->
+                <a href="https://x.com/wholewhale69" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-1.5 bg-black hover:bg-gray-900 border border-cyan-500/40 text-white font-bold px-3 py-2 rounded-xl transition-all duration-300 hover:border-cyan-400 text-xs sm:text-sm">
+                    <i class="fa-brands fa-x-twitter text-cyan-400 text-sm"></i>
+                    <span class="hidden md:inline">X Community</span>
+                    <span class="md:hidden">X</span>
+                </a>
+
+                <!-- Telegram Channel Button (Top Highlight) -->
+                <a href="https://t.co/81g2La5saz" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold px-3.5 py-2 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-cyan-500/25 text-xs sm:text-sm">
+                    <i class="fa-brands fa-telegram text-base"></i>
+                    <span class="hidden sm:inline">Telegram</span>
+                    <span class="sm:hidden">TG</span>
+                    <span class="hidden sm:inline-block bg-black/20 text-black text-[10px] font-mono px-1.5 py-0.5 rounded-md uppercase tracking-wider">JOIN</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow z-10">
+
+        <!-- Hero Section with Banner -->
+        <section id="hero" class="relative pt-4 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            
+            <!-- Banner Container -->
+            <div class="relative w-full h-48 sm:h-64 md:h-80 rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl group">
+                <img src="https://pbs.twimg.com/profile_banners/1793793501466951680/1794136007/1500x500" 
+                     alt="Whole Whale Banner" 
+                     onerror="this.src='https://placehold.co/1500x500/061325/22d3ee?text=Whole+Whale+Solana+Community'"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-ocean-950 via-ocean-950/40 to-transparent"></div>
+                
+                <!-- Floating Solana Tag -->
+                <div class="absolute top-4 right-4 glass-panel px-3 py-1.5 rounded-full flex items-center gap-2 border border-solana-green/40 shadow-lg">
+                    <img src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png" alt="SOL" class="w-4 h-4">
+                    <span class="text-xs font-bold text-solana-green font-mono">SOLANA ECOSYSTEM</span>
+                </div>
+            </div>
+
+            <!-- Profile Info & Hero Intro -->
+            <div class="relative max-w-5xl mx-auto -mt-16 sm:-mt-20 px-4 text-center sm:text-left flex flex-col sm:flex-row items-center sm:items-end gap-6">
+                <!-- Avatar -->
+                <div class="relative shrink-0 animate-float">
+                    <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full border-4 border-cyan-400 p-1 bg-ocean-950 shadow-2xl animate-pulse-glow">
+                        <img src="https://pbs.twimg.com/profile_images/2119386138955698176/RDf_GOQb_400x400.jpg" 
+                             alt="Whole Whale Avatar" 
+                             onerror="this.src='https://placehold.co/400x400/061325/22d3ee?text=Whale'"
+                             class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="absolute bottom-2 right-2 bg-gradient-to-r from-solana-purple to-solana-green p-1.5 rounded-full text-black shadow-lg" title="Verified Whale">
+                        <i class="fa-solid fa-check text-xs font-black"></i>
+                    </span>
+                </div>
+
+                <!-- Text Info -->
+                <div class="flex-grow pt-2">
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Whole Whale</h1>
+                        <span class="text-2xl animate-bounce">🐋</span>
+                    </div>
+                    <p class="text-cyan-400 font-mono text-sm sm:text-base font-medium mb-3">
+                        @wholewhale69 • <span class="text-gray-300">Solana Whale Community & Daily Giveaways</span>
+                    </p>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+                        Connecting Solana degen whales, alpha hunters, and community members. We distribute SOL daily, host exclusive giveaways, and build high-value Solana utilities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Buttons Bar -->
+            <div class="mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-4 max-w-5xl mx-auto">
+                <a href="#giveaway" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-extrabold text-black bg-gradient-to-r from-cyan-400 via-solana-green to-cyan-400 hover:opacity-95 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-gift text-lg"></i> Submit SOL for Giveaway
+                </a>
+                <a href="https://t.co/81g2La5saz" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-white glass-panel hover:bg-ocean-700/60 border border-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-telegram text-cyan-400 text-lg"></i> Telegram Channel
+                </a>
+                <a href="https://x.com/wholewhale69" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-white glass-panel hover:bg-ocean-700/60 border border-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-x-twitter text-cyan-400 text-lg"></i> Join X Community (@wholewhale69)
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section id="stats" class="py-8 px-4 max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Stat Item 1 -->
+                <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20 text-center hover:border-cyan-400/50 transition-all">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono mb-1" id="stat-whales">1,376+</div>
+                    <div class="text-xs sm:text-sm text-gray-400 font-medium">Active Whales</div>
+                </div>
+                <!-- Stat Item 2 -->
+                <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20 text-center hover:border-cyan-400/50 transition-all">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-solana-green font-mono mb-1">450+ SOL</div>
+                    <div class="text-xs sm:text-sm text-gray-400 font-medium">Distributed</div>
+                </div>
+                <!-- Stat Item 3 -->
+                <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20 text-center hover:border-cyan-400/50 transition-all">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-solana-purple font-mono mb-1">3.5 SOL</div>
+                    <div class="text-xs sm:text-sm text-gray-400 font-medium">Current Pool</div>
+                </div>
+                <!-- Stat Item 4 -->
+                <div class="glass-panel p-5 rounded-2xl border border-cyan-500/20 text-center hover:border-cyan-400/50 transition-all">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono mb-1">60</div>
+                    <div class="text-xs sm:text-sm text-gray-400 font-medium">Lucky Winners</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Giveaway Section -->
+        <section id="giveaway" class="py-12 px-4 max-w-5xl mx-auto relative">
+            <div class="gradient-border">
+                <div class="gradient-border-inner p-6 sm:p-10 relative overflow-hidden">
+                    
+                    <!-- Background Glow inside box -->
+                    <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-solana-green/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-cyan-500/20 pb-8 mb-8">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-solana-green/10 border border-solana-green/30 text-solana-green text-xs font-bold font-mono mb-3">
+                                <span class="w-2 h-2 rounded-full bg-solana-green animate-ping"></span> LIVE COMMUNITY GIVEAWAY
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">3.5 SOL Community Pool</h2>
+                            <p class="text-gray-400 text-sm mt-1">Submit your valid Solana address to enter the automated pool draw.</p>
+                        </div>
+                        
+                        <!-- Breakdown Box -->
+                        <div class="flex gap-3 w-full md:w-auto">
+                            <div class="glass-panel p-3 rounded-xl border border-cyan-500/30 text-center flex-1 md:flex-initial min-w-[120px]">
+                                <span class="block text-xs text-gray-400">Top 10 Winners</span>
+                                <span class="font-extrabold text-cyan-400 font-mono text-lg">0.10 SOL</span>
+                            </div>
+                            <div class="glass-panel p-3 rounded-xl border border-solana-purple/30 text-center flex-1 md:flex-initial min-w-[120px]">
+                                <span class="block text-xs text-gray-400">Next 50 Winners</span>
+                                <span class="font-extrabold text-solana-purple font-mono text-lg">0.05 SOL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submission Form -->
+                    <form id="giveaway-form" onsubmit="handleGiveawaySubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="sol-address" class="block text-xs font-bold font-mono text-cyan-400 uppercase tracking-wider mb-2">
+                                Your Solana (SOL) Public Wallet Address
+                            </label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+                                <input type="text" 
+                                       id="sol-address" 
+                                       placeholder="e.g. 7xKXtg2CW87d97TXJSDpbD5jBkZ4kJJ..." 
+                                       required
+                                       class="w-full pl-11 pr-24 py-4 rounded-xl bg-ocean-950 border border-cyan-500/30 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 font-mono text-sm transition-all">
+                                <button type="button" 
+                                        onclick="pasteFromClipboard()" 
+                                        class="absolute right-3 top-2.5 px-3 py-1.5 rounded-lg bg-ocean-800 hover:bg-ocean-700 border border-cyan-500/20 text-xs font-bold text-cyan-400 hover:text-white transition-colors">
+                                    Paste
+                                </button>
+                            </div>
+                            <p id="error-msg" class="hidden text-red-400 text-xs mt-2 font-mono flex items-center gap-1">
+                                <i class="fa-solid fa-circle-exclamation"></i> Invalid Solana wallet address length (32-44 base58 characters required).
+                            </p>
+                        </div>
+
+                        <!-- Action Controls -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fa-solid fa-shield-halved text-solana-green"></i>
+                                <span>No sign-up required • 1 entry per wallet address</span>
+                            </div>
+                            <button type="submit" 
+                                    id="submit-btn"
+                                    class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold text-base transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2">
+                                <span>Submit Entry</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success State Notice (Hidden initial) -->
+                    <div id="success-state" class="hidden mt-6 p-6 rounded-2xl bg-solana-green/10 border border-solana-green/40 text-center animate-fade-in">
+                        <div class="w-12 h-12 rounded-full bg-solana-green/20 text-solana-green flex items-center justify-center mx-auto mb-3 text-xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Entry Successfully Submitted!</h3>
+                        <p class="text-sm text-gray-300 max-w-md mx-auto mb-4">
+                            Your address has been recorded in the pool database. Winners will receive automatic SOL transfers directly to their wallets.
+                        </p>
+                        <div class="inline-block p-3 rounded-xl bg-ocean-950 font-mono text-xs text-cyan-400 border border-cyan-500/20 break-all" id="submitted-address-display">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- NFT Mint & Official Links Banner -->
+        <section id="nft" class="py-10 px-4 max-w-7xl mx-auto">
+            <div class="glass-panel p-8 rounded-3xl border border-cyan-500/30 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                <div class="space-y-3 text-center md:text-left z-10 max-w-xl">
+                    <div class="inline-block px-3 py-1 rounded-full bg-solana-purple/20 text-solana-purple text-xs font-bold border border-solana-purple/30">
+                        OFFICIAL MINT
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Whole Whale NFT Mint Platform</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Mint official Whole Whale pass NFTs to unlock tier-1 giveaway multipliers, exclusive Telegram alpha channel access, and revenue-sharing pools.
+                    </p>
+                </div>
+                <div class="z-10 shrink-0">
+                    <a href="https://spark-yudst.nft.imintify.com" target="_blank" rel="noopener noreferrer" 
+                       class="px-8 py-4 rounded-xl bg-gradient-to-r from-solana-purple to-solana-green text-black font-extrabold text-base hover:opacity-90 transition-all shadow-xl shadow-solana-purple/20 flex items-center gap-3">
+                        <i class="fa-solid fa-cubes text-lg"></i>
+                        <span>Mint NFT Pass</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Links Grid -->
+        <section id="community" class="py-10 px-4 max-w-7xl mx-auto">
+            <h3 class="text-xl font-bold text-white mb-6 text-center sm:text-left">Official Community Channels</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- Card 1: Telegram -->
+                <a href="https://t.co/81g2La5saz" target="_blank" rel="noopener noreferrer" 
+                   class="glass-panel p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Telegram Channel</h4>
+                        <p class="text-gray-400 text-xs mt-2 leading-relaxed">Daily calls, giveaway announcements, and live whale updates.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-cyan-400 flex items-center gap-1">
+                        Join Telegram <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    </span>
+                </a>
+
+                <!-- Card 2: X Community -->
+                <a href="https://x.com/wholewhale69" target="_blank" rel="noopener noreferrer" 
+                   class="glass-panel p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-white flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">X Community Hub</h4>
+                        <p class="text-gray-400 text-xs mt-2 leading-relaxed">Connect with fellow whales, post alpha, and participate in X giveaways.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-cyan-400 flex items-center gap-1">
+                        Join X Community (@wholewhale69) <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    </span>
+                </a>
+
+                <!-- Card 3: NFT -->
+                <a href="https://spark-yudst.nft.imintify.com" target="_blank" rel="noopener noreferrer" 
+                   class="glass-panel p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-solana-purple/10 text-solana-purple flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">NFT iMintify Portal</h4>
+                        <p class="text-gray-400 text-xs mt-2 leading-relaxed">Verify your pass and claim whale community privileges.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-bold text-cyan-400 flex items-center gap-1">
+                        Open iMintify Mint <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-10 px-4 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-extrabold text-white mb-6 text-center">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="glass-panel p-5 rounded-2xl border border-cyan-500/20 group">
+                    <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>How are the giveaway winners chosen?</span>
+                        <i class="fa-solid fa-chevron-down text-cyan-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                        Winners are chosen at random using on-chain verifiable randomness scripts. All prizes (SOL) are sent directly to the submitted address without transaction fees for the user.
+                    </p>
+                </details>
+
+                <details class="glass-panel p-5 rounded-2xl border border-cyan-500/20 group">
+                    <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>How many times can I submit my SOL address?</span>
+                        <i class="fa-solid fa-chevron-down text-cyan-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                        To keep the community pool fair, only 1 valid address submission is counted per active pool round. Duplicate submissions are automatically filtered out.
+                    </p>
+                </details>
+
+                <details class="glass-panel p-5 rounded-2xl border border-cyan-500/20 group">
+                    <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+                        <span>Where can I verify official announcements?</span>
+                        <i class="fa-solid fa-chevron-down text-cyan-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                        Always check <a href="https://x.com/wholewhale69" class="text-cyan-400 underline">@wholewhale69 on X</a> and the official Telegram group (<a href="https://t.me/wholewhale69" class="text-cyan-400 underline">t.me/wholewhale69</a>). Never trust DM impersonators asking for seed phrases.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-cyan-500/20 py-8 px-4 mt-12 text-center text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="https://pbs.twimg.com/profile_images/2119386138955698176/RDf_GOQb_400x400.jpg" 
+                     alt="Whole Whale" 
+                     onerror="this.src='https://placehold.co/100x100/061325/22d3ee?text=Whale'"
+                     class="w-6 h-6 rounded-full border border-cyan-400">
+                <span class="font-bold text-white">Whole Whale Community</span>
+                <span>© 2026</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="https://x.com/wholewhale69" target="_blank" class="hover:text-cyan-400 transition-colors">X Community</a>
+                <a href="https://t.co/81g2La5saz" target="_blank" class="hover:text-cyan-400 transition-colors">Telegram</a>
+                <a href="https://spark-yudst.nft.imintify.com" target="_blank" class="hover:text-cyan-400 transition-colors">iMintify NFT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 glass-panel border border-solana-green/50 p-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm">
+        <div class="w-8 h-8 rounded-full bg-solana-green text-black flex items-center justify-center shrink-0 font-bold">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <div class="font-bold text-white text-sm" id="toast-title">Success</div>
+            <div class="text-xs text-gray-300" id="toast-desc">Wallet added to pool entry.</div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Form & Wallet validation handler
+        function handleGiveawaySubmit(event) {
+            event.preventDefault();
+            const input = document.getElementById('sol-address');
+            const errorMsg = document.getElementById('error-msg');
+            const successState = document.getElementById('success-state');
+            const displayAddress = document.getElementById('submitted-address-display');
+            const address = input.value.trim();
+
+            // Basic Solana Base58 address format validation (typically 32 to 44 chars)
+            const solanaRegex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+
+            if (!solanaRegex.test(address)) {
+                errorMsg.classList.remove('hidden');
+                input.classList.add('border-red-500');
+                return;
+            }
+
+            // Valid state
+            errorMsg.classList.add('hidden');
+            input.classList.remove('border-red-500');
+
+            // Show Toast & Trigger Confetti
+            triggerConfetti();
+            showToast('Entry Registered!', 'Your SOL address is active in the giveaway pool.');
+
+            // Display success details
+            displayAddress.textContent = address;
+            successState.classList.remove('hidden');
+
+            // Reset Input
+            input.value = '';
+        }
+
+        // Paste helper function
+        function pasteFromClipboard() {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                navigator.clipboard.readText().then(text => {
+                    document.getElementById('sol-address').value = text.trim();
+                }).catch(() => {
+                    showToast('Notice', 'Please manually paste using Ctrl+V or Cmd+V.');
+                });
+            } else {
+                showToast('Notice', 'Please manually paste your wallet address.');
+            }
+        }
+
+        // Toast Trigger
+        function showToast(title, desc) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-desc').textContent = desc;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+
+        // Confetti Fireworks effect
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#22d3ee', '#9945FF', '#14F195', '#ffffff']
+                });
+            }
+        }
+    </script>
+</body>
+</html>
